@@ -4,40 +4,35 @@ import Materials from "../models/material.js";
 import createSlug from "../utils/create-slug.js";
 
 export async function createRealisation(values) {
-  try {
-    const realisation = new Realisations({
-      name: values.name,
-      slug: createSlug(values.name),
-      category: values.category,
-    });
-    const materailsKey = Object.keys(values.materials);
-    for (const key of materailsKey) {
-      console.log(values.materials[key]);
-      const material = {
-        material: values.materials[key].material,
-        qty: values.materials[key].qty,
-      };
-      realisation.materials.push(material);
-    }
-    realisation.quantity = 1;
-    return realisation
-      .save()
-      .then(() => {
-        return { created: true };
-      })
-      .catch((reason) => {
-        if (reason.errorResponse.code === 11000) {
-          return {
-            created: false,
-            reason: `Une réalisation portant la valeur "${reason.errorResponse.keyValue.name}" existe déjà.`,
-          };
-        }
-        return { created: false, reason };
-      });
-  } catch (reason) {
-    console.log(reason);
-    return { created: false, reason };
+  const realisation = new Realisations({
+    name: values.name,
+    slug: createSlug(values.name),
+    category: values.category,
+  });
+  const materailsKey = Object.keys(values.materials);
+  for (const key of materailsKey) {
+    console.log(values.materials[key]);
+    const material = {
+      material: values.materials[key].material,
+      qty: values.materials[key].qty,
+    };
+    realisation.materials.push(material);
   }
+  realisation.quantity = 1;
+  return realisation
+    .save()
+    .then(() => {
+      return { created: true };
+    })
+    .catch((reason) => {
+      if (reason.errorResponse.code === 11000) {
+        return {
+          created: false,
+          reason: `Une réalisation portant la valeur "${reason.errorResponse.keyValue.name}" existe déjà.`,
+        };
+      }
+      return { created: false, reason };
+    });
 }
 
 export async function getDetailedRealisations() {
@@ -60,7 +55,7 @@ export async function getDetailedRealisations() {
     slug: realisation.slug,
     category: realisation.category,
     materials: realisation.materials.map((material) => ({
-      name: material.material.name,
+      name: material.material ? material.material.name : "no name",
       qty: material.qty,
     })),
   }));
