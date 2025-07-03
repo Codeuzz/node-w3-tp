@@ -12,7 +12,7 @@ const realisationSchema = new mongoose.Schema({
     unique: true,
   },
   quantity: Number,
-  materiaux: [realisationMaterialsSchema],
+  materials: [realisationMaterialsSchema],
 });
 
 const Realisations = mongoose.model("Realisations", realisationSchema);

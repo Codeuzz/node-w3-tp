@@ -38,6 +38,6 @@ async function insertCompanies() {
   console.groupEnd();
 }
 
-await insertMaterials();
 await insertCompanies();
+await insertMaterials();
 process.exit(0);
