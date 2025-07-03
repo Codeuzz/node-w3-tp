@@ -7,5 +7,6 @@ const router = express.Router();
 router.get("/materials", getMaterials);
 router.get("/realisation", realisationController.getRealisations);
 router.post("/realisation", realisationController.addRealisation);
+router.put("/updateRealisation", realisationController.updateRealisationQty);
 
 export default router;
