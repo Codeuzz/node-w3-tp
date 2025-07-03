@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import router from "./routes/index.js";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const PORT = process.env.API_PORT || 8000;
@@ -17,6 +18,7 @@ server.use(
 );
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
+server.use(cookieParser());
 
 server.use(router);
 
