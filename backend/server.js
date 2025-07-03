@@ -11,6 +11,8 @@ const server = express();
 server.use(
   cors({
     origin: ORIGIN,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
   })
 );
 server.use(express.urlencoded({ extended: false }));

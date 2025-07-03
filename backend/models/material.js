@@ -1,4 +1,4 @@
-import mongoose from "./index.js";
+import mongoose from "./mongoose.js";
 import * as mongo from "mongoose";
 
 const materialSchema = new mongoose.Schema({
