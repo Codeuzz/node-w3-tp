@@ -23,12 +23,20 @@ const Navbar = () => {
               Login
             </Link>
           )}
-          <Link className="text-white" to="/materials">
-            Materials
-          </Link>
-          <Link className="text-white" to="/realisations">
-            Realisations
-          </Link>
+          {isLoggedIn ? (
+            <Link className="text-white" to="/materials">
+              Materials
+            </Link>
+          ) : (
+            <span className="text-white disabled-link">Materials</span>
+          )}
+          {isLoggedIn ? (
+            <Link className="text-white" to="/realisations">
+              Realisations
+            </Link>
+          ) : (
+            <span className="text-white disabled-link">Realisations</span>
+          )}
         </div>
       </CContainer>
     </CNavbar>
