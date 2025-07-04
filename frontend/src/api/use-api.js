@@ -9,9 +9,12 @@ import {
 } from "./api";
 
 export function useMaterials() {
-  return useQuery(["materials"], async () => {
-    const res = await getMaterials();
-    return res.data;
+  return useQuery({
+    queryKey: ["materials"],
+    queryFn: async () => {
+      const res = await getMaterials();
+      return res.data;
+    },
   });
 }
 
