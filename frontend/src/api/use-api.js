@@ -19,9 +19,12 @@ export function useMaterials() {
 }
 
 export function useRealisations() {
-  return useQuery(["realisations"], async () => {
-    const res = await getRealisations();
-    return res.data;
+  return useQuery({
+    queryKey: ["realisations"],
+    queryFn: async () => {
+      const res = await getRealisations();
+      return res.data;
+    },
   });
 }
 

@@ -1,14 +1,10 @@
 import axiosClient from "./axios-client.js";
 
 export const login = async ({ email, password }) => {
-  const res = await axiosClient.post(
-    "/login",
-    {
-      email,
-      password,
-    },
-    { withCredentials: true }
-  );
+  const res = await axiosClient.post("/login", {
+    email,
+    password,
+  });
   return res.data;
 };
 
