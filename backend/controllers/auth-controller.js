@@ -1,4 +1,6 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
 import { APIResponse } from "../utils/response.js";
 
@@ -11,6 +13,8 @@ const authController = {
     const { email, password } = req.body;
 
     if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+      console.log("ENV EMAIL:", ADMIN_EMAIL);
+      console.log("ENV PASSWORD:", ADMIN_PASSWORD);
       return APIResponse(res, null, "Wrong email or password", 400);
     }
 

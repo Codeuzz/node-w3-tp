@@ -6,10 +6,23 @@ import { authMiddleWare } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.get("/materials", getMaterials);
-router.get("/realisation", realisationController.getRealisations);
-router.post("/realisation", realisationController.addRealisation);
-router.put("/updateRealisation", realisationController.updateRealisationQty);
-router.post("/login", authMiddleWare, authController.login);
+router.get("/materials", authMiddleWare, getMaterials);
+router.get(
+  "/realisation",
+  authMiddleWare,
+  realisationController.getRealisations
+);
+router.post(
+  "/realisation",
+  authMiddleWare,
+  realisationController.addRealisation
+);
+router.put(
+  "/updateRealisation",
+  authMiddleWare,
+  realisationController.updateRealisationQty
+);
+router.post("/login", authController.login);
+router.post("/logout", authController.logout);
 
 export default router;
