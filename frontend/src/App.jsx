@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Materials from "./pages/materials";
 import Realisations from "./pages/realisations";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddRealisation from "./pages/add-realisation";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/auth" element={<Login />} />
         <Route path="/materials" element={<Materials />} />
         <Route path="/realisations" element={<Realisations />} />
+        <Route path="/add-realisation" element={<AddRealisation />} />
       </Routes>
     </Router>
   );

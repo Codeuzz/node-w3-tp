@@ -37,6 +37,13 @@ const Navbar = () => {
           ) : (
             <span className="text-white disabled-link">Realisations</span>
           )}
+          {isLoggedIn ? (
+            <Link className="text-white" to="/add-realisation">
+              Add Realisation
+            </Link>
+          ) : (
+            <span className="text-white disabled-link">Add Realisation</span>
+          )}
         </div>
       </CContainer>
     </CNavbar>

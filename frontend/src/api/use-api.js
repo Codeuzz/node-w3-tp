@@ -42,7 +42,8 @@ export function useLogout() {
 
 export function useAddRealisation() {
   const queryClient = useQueryClient();
-  return useMutation(addRealisation, {
+  return useMutation({
+    mutationFn: addRealisation,
     onSuccess: () => {
       queryClient.invalidateQueries(["realisations"]);
     },
