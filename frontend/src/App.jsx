@@ -1,11 +1,22 @@
-import { CButton } from "@coreui/react";
+import Navbar from "./pages/components/navbar";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import Materials from "./pages/materials";
+import Realisations from "./pages/realisations";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <p className="text-primary">Hello World</p>
-      <CButton color="primary">caca</CButton>
-    </>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/materials" element={<Materials />} />
+        <Route path="/realisations" element={<Realisations />} />
+      </Routes>
+    </Router>
   );
 }
 
