@@ -12,6 +12,8 @@
   "dependencies": {
     "@coreui/coreui": "^5.4.1",
     "@coreui/react": "^5.7.0",
+    "@tanstack/react-query": "^5.81.5",
+    "axios": "^1.10.0",
     "bootstrap": "^5.3.7",
     "chartjs": "^0.3.24",
     "react": "^19.1.0",
