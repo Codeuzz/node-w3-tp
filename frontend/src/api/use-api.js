@@ -43,6 +43,7 @@ export function useLogout() {
 export function useAddRealisation() {
   const queryClient = useQueryClient();
   return useMutation({
+    mutationKey: ["addRealisation"],
     mutationFn: addRealisation,
     onSuccess: () => {
       queryClient.invalidateQueries(["realisations"]);
@@ -52,7 +53,9 @@ export function useAddRealisation() {
 
 export function useUpdateRealisationQty() {
   const queryClient = useQueryClient();
-  return useMutation(updateRealisationQty, {
+  return useMutation({
+    mutationKey: ["updateRealisationQty"],
+    mutationFn: updateRealisationQty,
     onSuccess: () => {
       queryClient.invalidateQueries(["realisations"]);
     },
