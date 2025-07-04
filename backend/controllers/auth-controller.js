@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 
-import { APIResponse } from "../utils";
+import { APIResponse } from "../utils/response.js";
+
 const JWT_SECRET = process.env.JWT_SECRET;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;

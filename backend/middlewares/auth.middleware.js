@@ -1,8 +1,7 @@
 import jwt from "jsonwebtoken";
-import { env } from "../config/env";
-import { APIResponse } from "../utils";
+import { APIResponse } from "../utils/response.js";
 
-const { JWT_SECRET } = env;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export const authMiddleWare = (req, res, next) => {
   const { accessToken } = req.cookies;
